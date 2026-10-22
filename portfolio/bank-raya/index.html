@@ -174,7 +174,7 @@
 
           <section class="track" aria-labelledby="api-title">
             <h3 id="api-title" data-id="API pembayaran" data-en="Payment API">API pembayaran</h3>
-            <p data-id="Menguji operasi CRUD, memeriksa integritas request dan response, serta memvalidasi alur integrasi pembayaran." data-en="Tests cover CRUD operations, request and response integrity, and payment integration flows.">Menguji operasi CRUD, memeriksa integritas request dan response, serta memvalidasi alur integrasi pembayaran.</p>
+            <p data-id="Menguji operasi CRUD, memeriksa integritas permintaan dan respons, serta memvalidasi alur integrasi pembayaran." data-en="Tests cover CRUD operations, request and response integrity, and payment integration flows.">Menguji operasi CRUD, memeriksa integritas permintaan dan respons, serta memvalidasi alur integrasi pembayaran.</p>
             <span class="framework">pytest</span>
           </section>
 
@@ -186,8 +186,8 @@
 
           <section class="track" aria-labelledby="team-title">
             <h3 id="team-title" data-id="Validasi rilis" data-en="Release validation">Validasi rilis</h3>
-            <p data-id="Menyusun skenario fungsional, regresi, dan integrasi bersama Payment Squad. Kriteria penerimaan, risiko, dan cakupan tes diselaraskan dengan developer, product manager, dan business analyst." data-en="Prepared functional, regression, and integration scenarios with the Payment Squad. Aligned acceptance criteria, risks, and test scope with developers, product managers, and business analysts.">Menyusun skenario fungsional, regresi, dan integrasi bersama Payment Squad. Kriteria penerimaan, risiko, dan cakupan tes diselaraskan dengan developer, product manager, dan business analyst.</p>
-            <p data-id="Menyiapkan panduan setup agar tim QA dapat menjalankan dan mengembangkan test suite. Mencatat, melacak, dan memverifikasi defect sebelum rilis produksi." data-en="Prepared setup guidance so QA colleagues could run and extend the test suite. Logged, tracked, and verified defects before production releases.">Menyiapkan panduan setup agar tim QA dapat menjalankan dan mengembangkan test suite. Mencatat, melacak, dan memverifikasi defect sebelum rilis produksi.</p>
+            <p data-id="Menyusun skenario fungsional, regresi, dan integrasi bersama Payment Squad. Kriteria penerimaan, risiko, dan cakupan tes diselaraskan dengan pengembang, manajer produk, dan analis bisnis." data-en="Prepared functional, regression, and integration scenarios with the Payment Squad. Aligned acceptance criteria, risks, and test scope with developers, product managers, and business analysts.">Menyusun skenario fungsional, regresi, dan integrasi bersama Payment Squad. Kriteria penerimaan, risiko, dan cakupan tes diselaraskan dengan pengembang, manajer produk, dan analis bisnis.</p>
+            <p data-id="Menyiapkan panduan konfigurasi agar tim QA dapat menjalankan dan mengembangkan rangkaian pengujian. Mencatat, melacak, dan memverifikasi defect sebelum rilis produksi." data-en="Prepared setup guidance so QA colleagues could run and extend the test suite. Logged, tracked, and verified defects before production releases.">Menyiapkan panduan konfigurasi agar tim QA dapat menjalankan dan mengembangkan rangkaian pengujian. Mencatat, melacak, dan memverifikasi defect sebelum rilis produksi.</p>
           </section>
         </div>
 
@@ -205,12 +205,12 @@
       <h2 id="raya-apps-title">Raya Apps</h2>
       <div class="detail-rows">
         <article class="detail-row">
-          <h3 data-id="Inquiry ke payment" data-en="Inquiry to payment">Inquiry ke payment</h3>
-          <p data-id="Alur dua fase: request inquiry memvalidasi data transaksi, lalu responsnya digunakan pada request payment. Validasi mencakup status respons dan field yang diperlukan." data-en="A two-phase flow: the inquiry request validates transaction data, then its response feeds the payment request. Assertions cover the response status and required fields.">Alur dua fase: request inquiry memvalidasi data transaksi, lalu responsnya digunakan pada request payment. Validasi mencakup status respons dan field yang diperlukan.</p>
+          <h3 data-id="Alur inquiry dan pembayaran" data-en="Inquiry and payment flow">Alur inquiry dan pembayaran</h3>
+          <p data-id="Proses terdiri dari dua tahap. Inquiry memvalidasi data transaksi, lalu responsnya menjadi masukan untuk permintaan pembayaran. Pengujian memeriksa status respons dan kelengkapan data wajib." data-en="The flow has two steps. The inquiry validates transaction data, and its response supplies the payment request. Tests check the response status and required fields.">Proses terdiri dari dua tahap. Inquiry memvalidasi data transaksi, lalu responsnya menjadi masukan untuk permintaan pembayaran. Pengujian memeriksa status respons dan kelengkapan data wajib.</p>
         </article>
         <article class="detail-row">
           <h3 data-id="Pembayaran langsung" data-en="Direct payment">Pembayaran langsung</h3>
-          <p data-id="Single-payment flow untuk skenario yang tidak memerlukan tahap inquiry." data-en="A single-payment flow for scenarios that do not require an inquiry step.">Single-payment flow untuk skenario yang tidak memerlukan tahap inquiry.</p>
+          <p data-id="Alur pembayaran satu tahap untuk skenario yang tidak memerlukan inquiry." data-en="A single-step payment flow for scenarios that do not require an inquiry.">Alur pembayaran satu tahap untuk skenario yang tidak memerlukan inquiry.</p>
         </article>
         <article class="detail-row">
           <h3 data-id="Cakupan fitur" data-en="Feature coverage">Cakupan fitur</h3>
@@ -238,7 +238,7 @@
         </article>
         <article class="detail-row">
           <h3 data-id="Data dan pelaporan" data-en="Data and reporting">Data dan pelaporan</h3>
-          <p data-id="Skenario dikelola melalui data Excel dan pytest. Allure menampilkan detail langkah serta lampiran request dan response. Framework juga terintegrasi dengan Jira untuk pelaporan hasil tes." data-en="Scenarios are data-driven from Excel and run with pytest. Allure reports include step details and request/response attachments. The framework also integrates with Jira for test-result reporting.">Skenario dikelola melalui data Excel dan pytest. Allure menampilkan detail langkah serta lampiran request dan response. Framework juga terintegrasi dengan Jira untuk pelaporan hasil tes.</p>
+          <p data-id="Skenario menggunakan data dari Excel dan dijalankan dengan pytest. Allure menampilkan rincian tiap langkah beserta lampiran permintaan dan respons. Framework terintegrasi dengan Jira untuk pelaporan hasil pengujian." data-en="Scenarios use data from Excel and run with pytest. Allure reports show step details and include request and response attachments. The framework integrates with Jira for test reporting.">Skenario menggunakan data dari Excel dan dijalankan dengan pytest. Allure menampilkan rincian tiap langkah beserta lampiran permintaan dan respons. Framework terintegrasi dengan Jira untuk pelaporan hasil pengujian.</p>
         </article>
       </div>
     </section>
