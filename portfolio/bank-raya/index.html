@@ -77,10 +77,13 @@
     h1, h2, h3 { margin: 0; font-family: Archivo, sans-serif; line-height: 1.16; }
     h1 { max-width: 900px; font-size: clamp(2.7rem, 7vw, 5.5rem); font-weight: 600; letter-spacing: -.035em; }
     .intro p { max-width: 720px; margin: 1.1rem 0 0; color: var(--muted); font-size: clamp(1.1rem, 2vw, 1.3rem); }
+    .case-meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem 1.5rem; margin: 0 0 2.7rem; padding: 1.1rem 0; border-block: 1px solid var(--line); }
+    .case-meta div { min-width: 0; }
+    .case-meta dt { color: var(--muted); font-size: .9rem; }
+    .case-meta dd { margin: .15rem 0 0; font-weight: 700; }
     .featured { padding-block: 2.4rem 3rem; border-top: 1px solid var(--line); }
     .case-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 338px); gap: clamp(2rem, 7vw, 6.5rem); align-items: start; }
     .case-copy { min-width: 0; }
-    .company { color: var(--accent); font: 600 clamp(2rem, 4vw, 3.2rem)/1.1 Archivo, sans-serif; letter-spacing: -.03em; }
     .case-copy h2 { margin-top: .5rem; font-size: clamp(1.55rem, 3vw, 2.2rem); letter-spacing: -.025em; }
     .case-summary { max-width: 650px; margin: 1rem 0 1.7rem; color: var(--muted); font-size: 1.08rem; }
     .track { padding: 1.1rem 0; border-top: 1px solid var(--line); }
@@ -96,6 +99,7 @@
     @media (max-width: 760px) {
       .topbar { min-height: 68px; }
       .case-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+      .case-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 1.2rem; margin-bottom: 2rem; }
       .recording { width: min(100%, 338px); margin-inline: auto; }
       .featured { padding-block: 1.9rem 2.5rem; }
     }
@@ -140,30 +144,38 @@
   <main id="main" class="container">
     <section class="intro" aria-labelledby="page-title">
       <h1 id="page-title" data-id="Bank Raya" data-en="Bank Raya">Bank Raya</h1>
-      <p data-id="Studi kasus otomasi dan validasi alur pembayaran pada API serta aplikasi Android." data-en="A case study in automating and validating payment flows across APIs and an Android app.">Studi kasus otomasi dan validasi alur pembayaran pada API serta aplikasi Android.</p>
+      <p data-id="Otomasi API pembayaran dan aplikasi Android, disertai validasi fungsional, regresi, dan integrasi untuk mendukung rilis." data-en="Payment API and Android automation, alongside functional, regression, and integration validation for releases.">Otomasi API pembayaran dan aplikasi Android, disertai validasi fungsional, regresi, dan integrasi untuk mendukung rilis.</p>
     </section>
+
+    <dl class="case-meta">
+      <div><dt data-id="Peran" data-en="Role">Peran</dt><dd>QA Automation</dd></div>
+      <div><dt data-id="Periode" data-en="Period">Periode</dt><dd data-id="Des 2025 - Sekarang" data-en="Dec 2025 - Present">Des 2025 - Sekarang</dd></div>
+      <div><dt data-id="Area" data-en="Area">Area</dt><dd data-id="Pengujian pembayaran" data-en="Payment testing">Pengujian pembayaran</dd></div>
+      <div><dt data-id="Tim" data-en="Team">Tim</dt><dd>Payment Squad</dd></div>
+    </dl>
 
     <section class="featured" aria-labelledby="case-title">
       <div class="case-grid">
         <div class="case-copy">
-          <h2 id="case-title" data-id="Pengujian pembayaran" data-en="Payment testing">Pengujian pembayaran</h2>
-          <p class="case-summary" data-id="Mengotomasi dan memvalidasi alur pembayaran pada API dan aplikasi Android, termasuk alur end-to-end Virtual Account." data-en="Automated and validated payment flows across APIs and the Android app, including a Virtual Account end-to-end flow.">Mengotomasi dan memvalidasi alur pembayaran pada API dan aplikasi Android, termasuk alur end-to-end Virtual Account.</p>
+          <h2 id="case-title" data-id="Cakupan pengujian" data-en="Test coverage">Cakupan pengujian</h2>
+          <p class="case-summary" data-id="Pengujian mencakup layanan API dan aplikasi Android. Masing-masing menggunakan framework otomasi yang sesuai dengan platformnya." data-en="Testing covers payment APIs and the Android app, with automation frameworks suited to each platform.">Pengujian mencakup layanan API dan aplikasi Android. Masing-masing menggunakan framework otomasi yang sesuai dengan platformnya.</p>
 
           <section class="track" aria-labelledby="api-title">
             <h3 id="api-title" data-id="API pembayaran" data-en="Payment API">API pembayaran</h3>
-            <p data-id="Cakupan meliputi operasi CRUD, integritas request dan response, serta alur integrasi." data-en="Coverage includes CRUD operations, request and response integrity, and integration flows.">Cakupan meliputi operasi CRUD, integritas request dan response, serta alur integrasi.</p>
+            <p data-id="Menguji operasi CRUD, memeriksa integritas request dan response, serta memvalidasi alur integrasi pembayaran." data-en="Tests cover CRUD operations, request and response integrity, and payment integration flows.">Menguji operasi CRUD, memeriksa integritas request dan response, serta memvalidasi alur integrasi pembayaran.</p>
             <span class="framework">pytest</span>
           </section>
 
           <section class="track" aria-labelledby="android-title">
             <h3 id="android-title" data-id="Aplikasi Android" data-en="Android app">Aplikasi Android</h3>
-            <p data-id="Menyusun dan menjalankan otomasi pembayaran dengan Robot Framework dan Appium, termasuk pada perangkat cloud LambdaTest." data-en="Built and ran payment automation with Robot Framework and Appium, including on LambdaTest cloud devices.">Menyusun dan menjalankan otomasi pembayaran dengan Robot Framework dan Appium, termasuk pada perangkat cloud LambdaTest.</p>
-            <span class="framework">Robot Framework · Appium</span>
+            <p data-id="Mengotomasi alur pembayaran aplikasi Android menggunakan Robot Framework dan Appium, termasuk eksekusi pada perangkat cloud LambdaTest." data-en="Automated Android payment flows with Robot Framework and Appium, including execution on LambdaTest cloud devices.">Mengotomasi alur pembayaran aplikasi Android menggunakan Robot Framework dan Appium, termasuk eksekusi pada perangkat cloud LambdaTest.</p>
+            <span class="framework">Robot Framework + Appium</span>
           </section>
 
           <section class="track" aria-labelledby="team-title">
-            <h3 id="team-title" data-id="Kolaborasi QA" data-en="QA collaboration">Kolaborasi QA</h3>
-            <p data-id="Menyiapkan skenario fungsional, regresi, dan integrasi untuk validasi rilis bersama Payment Squad. Cakupan dan risiko pengujian diselaraskan dengan developer, product manager, dan business analyst." data-en="Prepared functional, regression, and integration scenarios for release validation with the Payment Squad. Aligned test scope and risks with developers, product managers, and business analysts.">Menyiapkan skenario fungsional, regresi, dan integrasi untuk validasi rilis bersama Payment Squad. Cakupan dan risiko pengujian diselaraskan dengan developer, product manager, dan business analyst.</p>
+            <h3 id="team-title" data-id="Validasi rilis" data-en="Release validation">Validasi rilis</h3>
+            <p data-id="Menyusun skenario fungsional, regresi, dan integrasi bersama Payment Squad. Kriteria penerimaan, risiko, dan cakupan tes diselaraskan dengan developer, product manager, dan business analyst." data-en="Prepared functional, regression, and integration scenarios with the Payment Squad. Aligned acceptance criteria, risks, and test scope with developers, product managers, and business analysts.">Menyusun skenario fungsional, regresi, dan integrasi bersama Payment Squad. Kriteria penerimaan, risiko, dan cakupan tes diselaraskan dengan developer, product manager, dan business analyst.</p>
+            <p data-id="Menyiapkan panduan setup agar tim QA dapat menjalankan dan mengembangkan test suite. Mencatat, melacak, dan memverifikasi defect sebelum rilis produksi." data-en="Prepared setup guidance so QA colleagues could run and extend the test suite. Logged, tracked, and verified defects before production releases.">Menyiapkan panduan setup agar tim QA dapat menjalankan dan mengembangkan test suite. Mencatat, melacak, dan memverifikasi defect sebelum rilis produksi.</p>
           </section>
         </div>
 
@@ -172,7 +184,7 @@
             <source src="../bank-raya-va-flow.mp4" type="video/mp4">
             <span data-id="Browser kamu tidak mendukung pemutaran video." data-en="Your browser does not support video playback.">Browser kamu tidak mendukung pemutaran video.</span>
           </video>
-          <figcaption data-id="Rekaman alur positif end-to-end Virtual Account. Menggunakan data dummy dari server development." data-en="Positive Virtual Account end-to-end recording. Uses dummy data from a development server.">Rekaman alur positif end-to-end Virtual Account. Menggunakan data dummy dari server development.</figcaption>
+          <figcaption data-id="Bukti eksekusi: alur positif end-to-end Virtual Account. Rekaman menggunakan data dummy dari server development." data-en="Execution evidence: positive Virtual Account end-to-end flow. The recording uses dummy data from a development server.">Bukti eksekusi: alur positif end-to-end Virtual Account. Rekaman menggunakan data dummy dari server development.</figcaption>
         </figure>
       </div>
     </section>
@@ -188,11 +200,8 @@
 
     function setLanguage(language) {
       root.lang = language;
-      document.querySelectorAll("[data-id][data-en]").forEach((element) => {
+      document.querySelectorAll("[data-id][data-en]:not(video)").forEach((element) => {
         element.textContent = element.dataset[language];
-      });
-      document.querySelectorAll("[data-id][data-en][aria-label]").forEach((element) => {
-        element.setAttribute("aria-label", element.dataset[language]);
       });
       document.querySelectorAll("[data-id][data-en][aria-label]").forEach((element) => {
         element.setAttribute("aria-label", element.dataset[language]);
