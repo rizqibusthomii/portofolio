@@ -96,6 +96,10 @@
     .detail-row { display: grid; grid-template-columns: minmax(150px, .38fr) minmax(0, 1fr); gap: 1.2rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
     .detail-row h3 { font-family: "Source Sans 3", sans-serif; font-size: 1.08rem; font-weight: 700; }
     .detail-row p { margin: 0; color: var(--muted); }
+    .coverage-groups { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(180px, 1fr); gap: 1.5rem; }
+    .coverage-group h4 { margin: 0 0 .35rem; font-size: 1.4rem; }
+    .coverage-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1rem; margin: 0; padding: 0; list-style: none; }
+    .coverage-list li { padding: .3rem 0; border-bottom: 1px solid var(--line); }
     .recording { margin: 0; }
     .recording video { display: block; width: 100%; height: auto; max-height: 690px; background: var(--page); border-radius: 8px; }
     .recording figcaption { margin-top: .75rem; color: var(--muted); font-size: .95rem; }
@@ -109,6 +113,7 @@
       .recording { width: min(100%, 338px); margin-inline: auto; }
       .featured { padding-block: 1.9rem 2.5rem; }
       .detail-row { grid-template-columns: minmax(0, 1fr); gap: .25rem; }
+      .coverage-groups { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
       .readme-details { padding-block: 2.2rem 2.5rem; }
     }
     @media (max-width: 420px) {
@@ -210,8 +215,27 @@
         </article>
         <article class="detail-row">
           <h3 data-id="Cakupan fitur" data-en="Feature coverage">Cakupan fitur</h3>
-          <p><strong data-id="Pembayaran dan tagihan:" data-en="Payments and bills:">Pembayaran dan tagihan:</strong> <span data-id="E-Wallet, Virtual Account, PDAM, BPJS, Cicilan Multifinance, Internet &amp; TV Kabel, Kartu Kredit, PLN, Pulsa, Pascabayar, Telkom, Transfer, Zakat &amp; Donasi." data-en="E-Wallet, Virtual Account, water utility (PDAM), BPJS, multifinance installments, internet &amp; cable TV, credit cards, PLN, mobile credit, postpaid services, Telkom, transfers, zakat &amp; donations.">E-Wallet, Virtual Account, PDAM, BPJS, Cicilan Multifinance, Internet &amp; TV Kabel, Kartu Kredit, PLN, Pulsa, Pascabayar, Telkom, Transfer, Zakat &amp; Donasi.</span></p>
-          <p><strong data-id="Produk Saku:" data-en="Saku products:">Produk Saku:</strong> Saku Utama, Saku Bujet, Saku Bisnis, Saku Bareng, Saku Pintar.</p>
+          <div class="coverage-groups">
+            <section class="coverage-group" aria-labelledby="payment-coverage-title">
+              <h4 id="payment-coverage-title" data-id="Pembayaran dan tagihan" data-en="Payments and bills">Pembayaran dan tagihan</h4>
+              <ul class="coverage-list">
+                <li>E-Wallet</li><li>Virtual Account</li><li>PDAM</li><li>BPJS</li>
+                <li data-id="Cicilan Multifinance" data-en="Multifinance installments">Cicilan Multifinance</li>
+                <li data-id="Internet &amp; TV Kabel" data-en="Internet &amp; cable TV">Internet &amp; TV Kabel</li>
+                <li data-id="Kartu Kredit" data-en="Credit cards">Kartu Kredit</li><li>PLN</li>
+                <li data-id="Pulsa" data-en="Mobile credit">Pulsa</li>
+                <li data-id="Pascabayar" data-en="Postpaid services">Pascabayar</li>
+                <li>Telkom</li><li data-id="Transfer" data-en="Transfers">Transfer</li>
+                <li data-id="Zakat &amp; Donasi" data-en="Zakat &amp; donations">Zakat &amp; Donasi</li>
+              </ul>
+            </section>
+            <section class="coverage-group" aria-labelledby="saku-coverage-title">
+              <h4 id="saku-coverage-title" data-id="Produk Saku" data-en="Saku products">Produk Saku</h4>
+              <ul class="coverage-list">
+                <li>Saku Utama</li><li>Saku Bujet</li><li>Saku Bisnis</li><li>Saku Bareng</li><li>Saku Pintar</li>
+              </ul>
+            </section>
+          </div>
         </article>
         <article class="detail-row">
           <h3 data-id="Data dan pelaporan" data-en="Data and reporting">Data dan pelaporan</h3>
