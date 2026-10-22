@@ -90,6 +90,12 @@
     .track h3 { font-family: "Source Sans 3", sans-serif; font-size: 1.18rem; font-weight: 700; }
     .track p { max-width: 650px; margin: .35rem 0 0; color: var(--muted); }
     .framework { display: inline-block; margin-top: .55rem; color: var(--accent); font-weight: 700; }
+    .readme-details { padding-block: 2.6rem 3rem; border-top: 1px solid var(--line); }
+    .readme-details h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); letter-spacing: -.025em; }
+    .detail-rows { margin-top: 1.3rem; border-top: 1px solid var(--line); }
+    .detail-row { display: grid; grid-template-columns: minmax(150px, .38fr) minmax(0, 1fr); gap: 1.2rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+    .detail-row h3 { font-family: "Source Sans 3", sans-serif; font-size: 1.08rem; font-weight: 700; }
+    .detail-row p { margin: 0; color: var(--muted); }
     .recording { margin: 0; }
     .recording video { display: block; width: 100%; height: auto; max-height: 690px; background: var(--page); border-radius: 8px; }
     .recording figcaption { margin-top: .75rem; color: var(--muted); font-size: .95rem; }
@@ -102,6 +108,8 @@
       .case-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 1.2rem; margin-bottom: 2rem; }
       .recording { width: min(100%, 338px); margin-inline: auto; }
       .featured { padding-block: 1.9rem 2.5rem; }
+      .detail-row { grid-template-columns: minmax(0, 1fr); gap: .25rem; }
+      .readme-details { padding-block: 2.2rem 2.5rem; }
     }
     @media (max-width: 420px) {
       body { font-size: 16px; }
@@ -186,6 +194,28 @@
           </video>
           <figcaption data-id="Bukti eksekusi: alur positif end-to-end Virtual Account. Rekaman menggunakan data dummy dari server development." data-en="Execution evidence: positive Virtual Account end-to-end flow. The recording uses dummy data from a development server.">Bukti eksekusi: alur positif end-to-end Virtual Account. Rekaman menggunakan data dummy dari server development.</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section class="readme-details" aria-labelledby="flows-title">
+      <h2 id="flows-title" data-id="Alur dan fitur pembayaran" data-en="Payment flows and features">Alur dan fitur pembayaran</h2>
+      <div class="detail-rows">
+        <article class="detail-row">
+          <h3 data-id="Inquiry ke payment" data-en="Inquiry to payment">Inquiry ke payment</h3>
+          <p data-id="Alur dua fase: request inquiry memvalidasi data transaksi, lalu responsnya digunakan pada request payment. Validasi mencakup status respons dan field yang diperlukan." data-en="A two-phase flow: the inquiry request validates transaction data, then its response feeds the payment request. Assertions cover the response status and required fields.">Alur dua fase: request inquiry memvalidasi data transaksi, lalu responsnya digunakan pada request payment. Validasi mencakup status respons dan field yang diperlukan.</p>
+        </article>
+        <article class="detail-row">
+          <h3 data-id="Pembayaran langsung" data-en="Direct payment">Pembayaran langsung</h3>
+          <p data-id="Single-payment flow untuk skenario yang tidak memerlukan tahap inquiry." data-en="A single-payment flow for scenarios that do not require an inquiry step.">Single-payment flow untuk skenario yang tidak memerlukan tahap inquiry.</p>
+        </article>
+        <article class="detail-row">
+          <h3 data-id="Contoh produk" data-en="Example products">Contoh produk</h3>
+          <p data-id="Contoh skenario yang tercantum di dokumentasi suite: Virtual Account, kartu kredit, dan GoPay." data-en="Examples documented in the suite: Virtual Account, credit card, and GoPay.">Contoh skenario yang tercantum di dokumentasi suite: Virtual Account, kartu kredit, dan GoPay.</p>
+        </article>
+        <article class="detail-row">
+          <h3 data-id="Data dan pelaporan" data-en="Data and reporting">Data dan pelaporan</h3>
+          <p data-id="Skenario dikelola melalui data Excel dan pytest. Allure menampilkan detail langkah serta lampiran request dan response. Framework juga terintegrasi dengan Jira untuk pelaporan hasil tes." data-en="Scenarios are data-driven from Excel and run with pytest. Allure reports include step details and request/response attachments. The framework also integrates with Jira for test-result reporting.">Skenario dikelola melalui data Excel dan pytest. Allure menampilkan detail langkah serta lampiran request dan response. Framework juga terintegrasi dengan Jira untuk pelaporan hasil tes.</p>
+        </article>
       </div>
     </section>
 
