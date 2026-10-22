@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f2">
+  <meta name="description" content="Studi kasus otomasi pengujian pembayaran Bank Raya oleh Rizqi Busthomi Wisono.">
+  <title>Bank Raya | Portofolio Rizqi Busthomi Wisono</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f7f7f2;
+      --surface: #e1e9e2;
+      --ink: #202923;
+      --muted: #57635b;
+      --accent: #275d46;
+      --line: #ccd4ce;
+      --focus: #275d46;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --page: #101713;
+      --surface: #2b4133;
+      --ink: #e9f0ea;
+      --muted: #b9c7bc;
+      --accent: #a6d6b5;
+      --line: #38493e;
+      --focus: #a6d6b5;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: "Source Sans 3", sans-serif;
+      font-size: 17px;
+      line-height: 1.55;
+      transition: background-color 160ms ease, color 160ms ease;
+    }
+    a { color: var(--accent); text-underline-offset: .2em; }
+    a:hover { text-decoration-thickness: 2px; }
+    button { color: inherit; font: inherit; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+    ::selection { background: var(--accent); color: var(--page); }
+    .skip-link {
+      position: absolute; left: 1rem; top: -5rem; z-index: 5;
+      padding: .7rem 1rem; background: var(--surface); color: var(--ink);
+    }
+    .skip-link:focus { top: 1rem; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+      width: min(100% - 2.5rem, 1160px); min-height: 76px; margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: .55rem; min-height: 44px;
+      color: var(--ink); font-weight: 700; text-decoration: none;
+    }
+    .back-link svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .controls, .language-switch, .theme-switch { display: flex; align-items: center; }
+    .controls { gap: .55rem; }
+    .language-switch, .theme-switch { gap: .2rem; }
+    .language-switch { padding: .2rem; border: 1px solid var(--line); border-radius: 7px; }
+    .language-switch button, .theme-switch button {
+      display: inline-grid; place-items: center; min-width: 2.75rem; min-height: 2.75rem;
+      padding: .35rem .55rem; border: 0; border-radius: 5px; background: transparent;
+      color: var(--muted); cursor: pointer; font-size: .9rem; font-weight: 700;
+    }
+    .language-switch button[aria-pressed="true"], .theme-switch button[aria-pressed="true"] { background: var(--accent); color: var(--page); }
+    .theme-switch { padding: .2rem; border-radius: 7px; background: var(--surface); }
+    .theme-switch svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .container { width: min(100% - 2.5rem, 1160px); margin-inline: auto; }
+    .intro { padding-block: clamp(2.8rem, 6vw, 5.25rem) clamp(2.5rem, 5vw, 4rem); }
+    h1, h2, h3 { margin: 0; font-family: Archivo, sans-serif; line-height: 1.16; }
+    h1 { max-width: 900px; font-size: clamp(2.7rem, 7vw, 5.5rem); font-weight: 600; letter-spacing: -.035em; }
+    .intro p { max-width: 720px; margin: 1.1rem 0 0; color: var(--muted); font-size: clamp(1.1rem, 2vw, 1.3rem); }
+    .featured { padding-block: 2.4rem 3rem; border-top: 1px solid var(--line); }
+    .case-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 338px); gap: clamp(2rem, 7vw, 6.5rem); align-items: start; }
+    .case-copy { min-width: 0; }
+    .company { color: var(--accent); font: 600 clamp(2rem, 4vw, 3.2rem)/1.1 Archivo, sans-serif; letter-spacing: -.03em; }
+    .case-copy h2 { margin-top: .5rem; font-size: clamp(1.55rem, 3vw, 2.2rem); letter-spacing: -.025em; }
+    .case-summary { max-width: 650px; margin: 1rem 0 1.7rem; color: var(--muted); font-size: 1.08rem; }
+    .track { padding: 1.1rem 0; border-top: 1px solid var(--line); }
+    .track h3 { font-family: "Source Sans 3", sans-serif; font-size: 1.18rem; font-weight: 700; }
+    .track p { max-width: 650px; margin: .35rem 0 0; color: var(--muted); }
+    .framework { display: inline-block; margin-top: .55rem; color: var(--accent); font-weight: 700; }
+    .recording { margin: 0; }
+    .recording video { display: block; width: 100%; height: auto; max-height: 690px; background: var(--page); border-radius: 8px; }
+    .recording figcaption { margin-top: .75rem; color: var(--muted); font-size: .95rem; }
+    footer { padding: 1.2rem 0 2rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .95rem; }
+    footer a { font-weight: 700; }
+    @media (min-width: 1440px) { .topbar, .container { width: min(100% - 10rem, 1160px); } }
+    @media (max-width: 760px) {
+      .topbar { min-height: 68px; }
+      .case-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+      .recording { width: min(100%, 338px); margin-inline: auto; }
+      .featured { padding-block: 1.9rem 2.5rem; }
+    }
+    @media (max-width: 420px) {
+      body { font-size: 16px; }
+      .topbar, .container { width: min(100% - 2rem, 1160px); }
+      .topbar { gap: .7rem; }
+      .back-link { gap: .35rem; font-size: .95rem; }
+      .controls { gap: .3rem; }
+    }
+    @media (max-width: 380px) {
+      .topbar { flex-wrap: wrap; padding-block: .65rem; }
+      .controls { width: 100%; justify-content: flex-end; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-id="Lewati ke konten" data-en="Skip to content">Lewati ke konten</a>
+  <header class="topbar">
+    <a class="back-link" href="../index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7M8 12h13"/></svg>
+      <span data-id="Kembali ke Portofolio" data-en="Back to Portfolio">Kembali ke Portofolio</span>
+    </a>
+    <div class="controls">
+      <div class="language-switch" role="group" aria-label="Bahasa / Language">
+        <button type="button" data-lang="id" aria-label="Bahasa Indonesia" aria-pressed="true">ID</button>
+        <button type="button" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
+      </div>
+      <div class="theme-switch" role="group" aria-label="Tema / Theme">
+        <button type="button" data-theme-choice="light" aria-label="Tema terang / Light theme" aria-pressed="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        </button>
+        <button type="button" data-theme-choice="dark" aria-label="Tema gelap / Dark theme" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 14.2A8.8 8.8 0 0 1 9.8 3.2 8.8 8.8 0 1 0 20.8 14.2Z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main id="main" class="container">
+    <section class="intro" aria-labelledby="page-title">
+      <h1 id="page-title" data-id="Bank Raya" data-en="Bank Raya">Bank Raya</h1>
+      <p data-id="Studi kasus otomasi dan validasi alur pembayaran pada API serta aplikasi Android." data-en="A case study in automating and validating payment flows across APIs and an Android app.">Studi kasus otomasi dan validasi alur pembayaran pada API serta aplikasi Android.</p>
+    </section>
+
+    <section class="featured" aria-labelledby="case-title">
+      <div class="case-grid">
+        <div class="case-copy">
+          <h2 id="case-title" data-id="Pengujian pembayaran" data-en="Payment testing">Pengujian pembayaran</h2>
+          <p class="case-summary" data-id="Mengotomasi dan memvalidasi alur pembayaran pada API dan aplikasi Android, termasuk alur end-to-end Virtual Account." data-en="Automated and validated payment flows across APIs and the Android app, including a Virtual Account end-to-end flow.">Mengotomasi dan memvalidasi alur pembayaran pada API dan aplikasi Android, termasuk alur end-to-end Virtual Account.</p>
+
+          <section class="track" aria-labelledby="api-title">
+            <h3 id="api-title" data-id="API pembayaran" data-en="Payment API">API pembayaran</h3>
+            <p data-id="Cakupan meliputi operasi CRUD, integritas request dan response, serta alur integrasi." data-en="Coverage includes CRUD operations, request and response integrity, and integration flows.">Cakupan meliputi operasi CRUD, integritas request dan response, serta alur integrasi.</p>
+            <span class="framework">pytest</span>
+          </section>
+
+          <section class="track" aria-labelledby="android-title">
+            <h3 id="android-title" data-id="Aplikasi Android" data-en="Android app">Aplikasi Android</h3>
+            <p data-id="Menyusun dan menjalankan otomasi pembayaran dengan Robot Framework dan Appium, termasuk pada perangkat cloud LambdaTest." data-en="Built and ran payment automation with Robot Framework and Appium, including on LambdaTest cloud devices.">Menyusun dan menjalankan otomasi pembayaran dengan Robot Framework dan Appium, termasuk pada perangkat cloud LambdaTest.</p>
+            <span class="framework">Robot Framework · Appium</span>
+          </section>
+
+          <section class="track" aria-labelledby="team-title">
+            <h3 id="team-title" data-id="Kolaborasi QA" data-en="QA collaboration">Kolaborasi QA</h3>
+            <p data-id="Menyiapkan skenario fungsional, regresi, dan integrasi untuk validasi rilis bersama Payment Squad. Cakupan dan risiko pengujian diselaraskan dengan developer, product manager, dan business analyst." data-en="Prepared functional, regression, and integration scenarios for release validation with the Payment Squad. Aligned test scope and risks with developers, product managers, and business analysts.">Menyiapkan skenario fungsional, regresi, dan integrasi untuk validasi rilis bersama Payment Squad. Cakupan dan risiko pengujian diselaraskan dengan developer, product manager, dan business analyst.</p>
+          </section>
+        </div>
+
+        <figure class="recording">
+          <video controls playsinline preload="auto" width="338" height="720" aria-label="Rekaman alur positif pembayaran Virtual Account" data-id="Rekaman alur positif pembayaran Virtual Account" data-en="Positive Virtual Account payment flow recording">
+            <source src="../bank-raya-va-flow.mp4" type="video/mp4">
+            <span data-id="Browser kamu tidak mendukung pemutaran video." data-en="Your browser does not support video playback.">Browser kamu tidak mendukung pemutaran video.</span>
+          </video>
+          <figcaption data-id="Rekaman alur positif end-to-end Virtual Account. Menggunakan data dummy dari server development." data-en="Positive Virtual Account end-to-end recording. Uses dummy data from a development server.">Rekaman alur positif end-to-end Virtual Account. Menggunakan data dummy dari server development.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <footer>
+      <a href="../index.html" data-id="Kembali ke semua portofolio" data-en="Back to all portfolio work">Kembali ke semua portofolio</a>
+    </footer>
+  </main>
+  <script>
+    const root = document.documentElement;
+    const languageButtons = [...document.querySelectorAll("[data-lang]")];
+    const themeButtons = [...document.querySelectorAll("[data-theme-choice]")];
+
+    function setLanguage(language) {
+      root.lang = language;
+      document.querySelectorAll("[data-id][data-en]").forEach((element) => {
+        element.textContent = element.dataset[language];
+      });
+      document.querySelectorAll("[data-id][data-en][aria-label]").forEach((element) => {
+        element.setAttribute("aria-label", element.dataset[language]);
+      });
+      document.querySelectorAll("[data-id][data-en][aria-label]").forEach((element) => {
+        element.setAttribute("aria-label", element.dataset[language]);
+      });
+      languageButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.lang === language)));
+      try { localStorage.setItem("portfolio-language", language); } catch (_) {}
+    }
+
+    function setTheme(theme) {
+      root.dataset.theme = theme;
+      themeButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.themeChoice === theme)));
+      try { localStorage.setItem("portfolio-theme", theme); } catch (_) {}
+    }
+
+    languageButtons.forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.lang)));
+    themeButtons.forEach((button) => button.addEventListener("click", () => setTheme(button.dataset.themeChoice)));
+    try {
+      setLanguage(localStorage.getItem("portfolio-language") || "id");
+      setTheme(localStorage.getItem("portfolio-theme") || "light");
+    } catch (_) {
+      setLanguage("id");
+      setTheme("light");
+    }
+  </script>
+</body>
+</html>
