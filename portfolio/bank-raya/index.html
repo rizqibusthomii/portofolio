@@ -101,6 +101,22 @@
     .coverage-group h4 { margin: 0 0 .35rem; font-size: 1.4rem; }
     .coverage-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .25rem 1rem; margin: 0; padding: 0; list-style: none; }
     .coverage-list li { padding: .15rem 0; }
+    .confluence-layout { display: grid; gap: 1rem; }
+    .confluence-copy > p { margin: 0; color: var(--muted); }
+    .report-flow { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+    .report-flow li { font-weight: 700; }
+    .report-flow li + li::before { content: "→"; margin-right: .45rem; color: var(--accent); }
+    .evidence-gallery { min-width: 0; margin-top: .5rem; }
+    .gallery-controls { display: flex; align-items: center; gap: .55rem; margin-bottom: .55rem; }
+    .gallery-controls button { min-height: 44px; padding: .4rem .7rem; border: 1px solid var(--line); border-radius: 5px; background: transparent; color: var(--ink); cursor: pointer; font: inherit; font-weight: 600; }
+    .gallery-controls button:disabled { color: var(--muted); cursor: not-allowed; opacity: .6; }
+    .gallery-count { margin: 0 auto 0 0; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .report-track { display: flex; overflow-x: auto; gap: 0; margin: 0; padding: 0; border-radius: 6px; list-style: none; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-color: var(--accent) var(--surface); }
+    .report-slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; }
+    .report-frame { display: grid; place-items: center; width: 100%; min-height: 220px; max-height: min(70vh, 520px); aspect-ratio: 16 / 9; overflow: hidden; border-radius: 6px; background: #fff; }
+    .report-frame img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
+    .report-caption { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem 1rem; margin-top: .45rem; color: var(--muted); font-size: .95rem; }
+    .report-open { display: inline-block; min-height: 44px; padding-top: .4rem; font-weight: 600; }
     .recording { margin: 0; }
     .recording video { display: block; width: 100%; height: auto; max-height: 690px; background: var(--page); border-radius: 8px; }
     .recording figcaption { margin-top: .75rem; color: var(--muted); font-size: .95rem; }
@@ -240,6 +256,52 @@
           <h3 data-id="Data dan pelaporan" data-en="Data and reporting">Data dan pelaporan</h3>
           <p data-id="Skenario menggunakan data dari Excel dan dijalankan dengan pytest. Allure menampilkan rincian tiap langkah beserta lampiran permintaan dan respons. Framework terintegrasi dengan Jira untuk pelaporan hasil pengujian." data-en="Scenarios use data from Excel and run with pytest. Allure reports show step details and include request and response attachments. The framework integrates with Jira for test reporting.">Skenario menggunakan data dari Excel dan dijalankan dengan pytest. Allure menampilkan rincian tiap langkah beserta lampiran permintaan dan respons. Framework terintegrasi dengan Jira untuk pelaporan hasil pengujian.</p>
         </article>
+        <article class="detail-row">
+          <h3 data-id="Pelaporan ke Confluence" data-en="Confluence reporting">Pelaporan ke Confluence</h3>
+          <div class="confluence-layout">
+            <div class="confluence-copy">
+              <p data-id="Script mengunggah hasil pengujian ke Confluence untuk melengkapi dokumentasi pelaksanaan." data-en="A script uploads test results to Confluence as part of the test documentation.">Script mengunggah hasil pengujian ke Confluence untuk melengkapi dokumentasi pelaksanaan.</p>
+              <ol class="report-flow" aria-label="Alur unggah laporan / Report upload flow">
+                <li data-id="Hasil pengujian" data-en="Test results">Hasil pengujian</li>
+                <li data-id="Script pengunggah" data-en="Upload script">Script pengunggah</li>
+                <li data-id="Halaman Confluence" data-en="Confluence page">Halaman Confluence</li>
+              </ol>
+            </div>
+            <div class="evidence-gallery" data-report-gallery role="group" aria-roledescription="carousel" aria-label="Bukti laporan Confluence / Confluence report evidence">
+              <div class="gallery-controls">
+                <p class="gallery-count" aria-live="polite">1 / 4</p>
+                <button type="button" data-gallery-prev data-id="Sebelumnya" data-en="Previous" aria-label="Screenshot sebelumnya">Sebelumnya</button>
+                <button type="button" data-gallery-next data-id="Berikutnya" data-en="Next" aria-label="Screenshot berikutnya">Berikutnya</button>
+              </div>
+              <ol class="report-track" tabindex="0" aria-label="Screenshot laporan, gunakan tombol panah kiri dan kanan untuk berpindah">
+                <li class="report-slide" role="group" aria-roledescription="slide" aria-label="1 dari 4">
+                  <figure>
+                    <div class="report-frame"><img src="evidence/va-report-overview.png" alt="Ringkasan laporan Virtual Account di Confluence" data-id="Ringkasan laporan Virtual Account di Confluence" data-en="Virtual Account report summary in Confluence" aria-label="Ringkasan laporan Virtual Account di Confluence"></div>
+                    <figcaption class="report-caption"><span data-id="Ringkasan fitur dan platform yang diuji." data-en="Summary of the tested feature and platform.">Ringkasan fitur dan platform yang diuji.</span><a class="report-open" href="evidence/va-report-overview.png" target="_blank" rel="noopener" data-id="Lihat gambar ukuran penuh" data-en="View full-size image">Lihat gambar ukuran penuh</a></figcaption>
+                  </figure>
+                </li>
+                <li class="report-slide" role="group" aria-roledescription="slide" aria-label="2 dari 4">
+                  <figure>
+                    <div class="report-frame"><img src="evidence/va-automation-coverage.png" alt="Ringkasan cakupan otomasi Virtual Account" data-id="Ringkasan cakupan otomasi Virtual Account" data-en="Virtual Account automation coverage summary" aria-label="Ringkasan cakupan otomasi Virtual Account"></div>
+                    <figcaption class="report-caption"><span data-id="Empat belas test case tercatat otomatis pada laporan." data-en="The report lists 14 automated test cases.">Empat belas test case tercatat otomatis pada laporan.</span><a class="report-open" href="evidence/va-automation-coverage.png" target="_blank" rel="noopener" data-id="Lihat gambar ukuran penuh" data-en="View full-size image">Lihat gambar ukuran penuh</a></figcaption>
+                  </figure>
+                </li>
+                <li class="report-slide" role="group" aria-roledescription="slide" aria-label="3 dari 4">
+                  <figure>
+                    <div class="report-frame"><img src="evidence/va-selected-run.png" alt="Hasil eksekusi terpilih untuk alur Virtual Account" data-id="Hasil eksekusi terpilih untuk alur Virtual Account" data-en="Selected Virtual Account run result" aria-label="Hasil eksekusi terpilih untuk alur Virtual Account"></div>
+                    <figcaption class="report-caption"><span data-id="Tabel membandingkan eksekusi terpilih dengan regresi terakhir." data-en="The table compares a selected run with the latest regression.">Tabel membandingkan eksekusi terpilih dengan regresi terakhir.</span><a class="report-open" href="evidence/va-selected-run.png" target="_blank" rel="noopener" data-id="Lihat gambar ukuran penuh" data-en="View full-size image">Lihat gambar ukuran penuh</a></figcaption>
+                  </figure>
+                </li>
+                <li class="report-slide" role="group" aria-roledescription="slide" aria-label="4 dari 4">
+                  <figure>
+                    <div class="report-frame"><img src="evidence/va-test-steps.png" alt="Langkah pengujian positif Virtual Account" data-id="Langkah pengujian positif Virtual Account" data-en="Positive Virtual Account test steps" aria-label="Langkah pengujian positif Virtual Account"></div>
+                    <figcaption class="report-caption"><span data-id="Cuplikan langkah dan hasil yang diharapkan pada test case positif." data-en="Excerpt of the positive test case steps and expected result.">Cuplikan langkah dan hasil yang diharapkan pada test case positif.</span><a class="report-open" href="evidence/va-test-steps.png" target="_blank" rel="noopener" data-id="Lihat gambar ukuran penuh" data-en="View full-size image">Lihat gambar ukuran penuh</a></figcaption>
+                  </figure>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -251,6 +313,7 @@
     const root = document.documentElement;
     const languageButtons = [...document.querySelectorAll("[data-lang]")];
     const themeButtons = [...document.querySelectorAll("[data-theme-choice]")];
+    const reportGallery = document.querySelector("[data-report-gallery]");
 
     function setLanguage(language) {
       root.lang = language;
@@ -272,6 +335,38 @@
 
     languageButtons.forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.lang)));
     themeButtons.forEach((button) => button.addEventListener("click", () => setTheme(button.dataset.themeChoice)));
+    if (reportGallery) {
+      const track = reportGallery.querySelector(".report-track");
+      const slides = [...track.children];
+      const count = reportGallery.querySelector(".gallery-count");
+      const previous = reportGallery.querySelector("[data-gallery-prev]");
+      const next = reportGallery.querySelector("[data-gallery-next]");
+      let activeIndex = 0;
+
+      function updateGallery() {
+        const index = Math.min(slides.length - 1, Math.round(track.scrollLeft / track.clientWidth));
+        if (index !== activeIndex) {
+          activeIndex = index;
+          count.textContent = `${activeIndex + 1} / ${slides.length}`;
+        }
+        previous.disabled = activeIndex === 0;
+        next.disabled = activeIndex === slides.length - 1;
+      }
+
+      function moveGallery(index) {
+        track.scrollTo({ left: index * track.clientWidth, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+      }
+
+      previous.addEventListener("click", () => moveGallery(activeIndex - 1));
+      next.addEventListener("click", () => moveGallery(activeIndex + 1));
+      track.addEventListener("scroll", updateGallery, { passive: true });
+      track.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft" && activeIndex > 0) { event.preventDefault(); moveGallery(activeIndex - 1); }
+        if (event.key === "ArrowRight" && activeIndex < slides.length - 1) { event.preventDefault(); moveGallery(activeIndex + 1); }
+      });
+      window.addEventListener("resize", () => moveGallery(activeIndex));
+      updateGallery();
+    }
     try {
       setLanguage(localStorage.getItem("portfolio-language") || "id");
       setTheme(localStorage.getItem("portfolio-theme") || "light");
